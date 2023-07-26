@@ -7,17 +7,41 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section id="numbersButtonsContainer">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>   
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
-        <div>9</div>
-    </section>
+    <main id="calculatorContainer">
+        <div  id="titleContainer">
+            <h1>Calculadora</h1>
+        </div>
+        <div>
+            <section id="calculator">
+                <section id="inputContainer">
+                    <label for="calcInput">Introduzca la cantidad:</label>
+                    <input type="text" id="name" name="calcInput" size="10">
+                </section>
+                <section id="numbersButtonsContainer">
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                    <div>5</div>   
+                    <div>6</div>
+                    <div>7</div>
+                    <div>8</div>
+                    <div>9</div>
+                </section>
+                <section id="operationsButtonsContainer">
+                    <div>+</div>
+                    <div>-</div>
+                    <div>x</div>
+                    <div>/</div>
+                    <div>=</div>
+                </section>    
+            </section>
+            <section id="resultContainer">
+                <h1>Resultado: </h1>
+                <div id="result"></div>
+            </section>            
+        </div>
+    </main>
 </body>
 <script>
 </script>
