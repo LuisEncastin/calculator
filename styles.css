@@ -4,17 +4,26 @@
     padding: 0;
 }
 
-#calculatorContainer{
-    width: 100%;
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 4rem 0;
+}
+
+#calculatorContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+    border: 1px solid lightgray;
+    border-radius: 10%
 }
 
 #calculator {
-    width: 100%;
-    padding: 5rem 4rem;
+    padding: 2rem 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -24,16 +33,18 @@
 
 /* numbersButtonsContainer */
 
-#numbersButtonsContainer {
+.buttons {
+    width: 300px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    grid-auto-rows: minmax(100px, auto);   
+    grid-auto-rows: minmax(20px, 50px);
+    place-items: center; 
 }
 
-#numbersButtonsContainer > div {
-    width: 3rem;
-    height: 3rem;
+.buttons > button, #equals {
+    width: 100%;
+    height: 100%;
     border: 1px solid lightgray;
     border-radius: 10%;
     display: grid;
@@ -42,21 +53,27 @@
     transition: box-shadow 0.2s ease; 
 }
 
-#numbersButtonsContainer > div:active {
+.buttons > button:active {
     box-shadow: 10px 10px 39px -13px rgba(0,0,0,0.75);
 -webkit-box-shadow: 10px 10px 39px -13px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 39px -13px rgba(0,0,0,0.75);
 }
 
-/* result */
-#resultContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
 #result {
-    width: 5rem;
+    width: 7rem;
     min-height: 2rem;
     height: 2rem;
     outline: 1px solid red;
+    text-align: center;
+}
+
+#equals {
+    grid-column: 3/4;
+    grid-row: 5/7;
+    width: 100%;
+} 
+
+#clear {
+    grid-column: 1/3;
+    width: 100%;
 }

@@ -8,41 +8,81 @@
 </head>
 <body>
     <main id="calculatorContainer">
-        <div  id="titleContainer">
-            <h1>Calculadora</h1>
-        </div>
-        <div>
-            <section id="calculator">
-                <section id="inputContainer">
-                    <label for="calcInput">Introduzca la cantidad:</label>
-                    <input type="text" id="name" name="calcInput" size="10">
-                </section>
-                <section id="numbersButtonsContainer">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>   
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                </section>
-                <section id="operationsButtonsContainer">
-                    <div>+</div>
-                    <div>-</div>
-                    <div>x</div>
-                    <div>/</div>
-                    <div>=</div>
-                </section>    
-            </section>
-            <section id="resultContainer">
-                <h1>Resultado: </h1>
-                <div id="result"></div>
-            </section>            
+        <h1>Calculator</h1>
+
+        <div id="calculator">
+          <input type="text" id="result" readonly>
+        
+          <div class="buttons">
+        
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>0</button>
+
+            <button class="operator">+</button>
+            <button class="operator">-</button>
+            <button class="operator">*</button>
+            <button class="operator">/</button>
+        
+            <div id="equals" class="operator">=</div>
+            <button id="clear">Clear</button>
+          </div>
         </div>
     </main>
 </body>
 <script>
+
+    //variables
+    let expression = '';
+
+    //input node
+    const result = document.getElementById('result');
+    //Buttons nodes
+    const buttons = document.querySelectorAll('#calculator .buttons button');
+    const equalsBtn = document.getElementById('equals');
+    const clearBtn = document.getElementById('clear');
+    
+    /**
+     * update the value of the selected button in the input
+     */
+    buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+        const value = button.textContent;
+        expression += value;
+        result.value = expression;
+        });
+    });
+
+    /**
+     * Equals button
+    */
+    const calculateResult = () => {
+        try {
+            let answer = eval(expression);
+            result.value = answer;
+            expression = answer.toString();
+        } catch (error) {
+            result.value = 'Error';
+            expression = '';
+        }
+    }
+
+    equalsBtn.addEventListener("click", calculateResult)
+
+    /**
+     * Clear function
+     */
+    clearBtn.addEventListener('click', function() {
+        result.value = '';
+        answer = 0
+    });
+
 </script>
 </html>
